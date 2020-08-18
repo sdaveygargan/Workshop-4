@@ -20,7 +20,7 @@ You may notice there are a couple of other assets in the project, but for now, t
 1. Open `MainScene.unity` in Unity. Press the ‘Play’ button and take a look at the cube (it might be best to look at the cube from the ‘Scene’ tab, since you can play around with it then). Currently it is rendered pink - this is because we have not assigned it a shader. Your first task is to modify `CubeScript.cs` to assign the custom `CubeShader.shader` to the cube’s material. When you are successful, the cube should be rendered black.
 
 <p align="center">
-  <img src="Gifs/1-Cube.png">
+  <img src="Gifs/1-Cube.png" width="500">
 </p>
 
 2. Examine the shader code (`CubeShader.shader`).
@@ -29,20 +29,20 @@ You may notice there are a couple of other assets in the project, but for now, t
 output the cube in yellow instead.
 
 <p align="center">
-  <img src="Gifs/2-Cube.png">
+  <img src="Gifs/2-Cube.png" width="500">
 </p>
 
 3. Modify the shader to handle vertex colours, so that the cube is rendered based on the vertex
 colours defined in `CubeScript.cs`. Hint: You will need to modify the structures `vertIn` and `vertOut`, as well as make small modifications to the vertex and fragment shaders themselves. The COLOR semantic should come in handy.
 
 <p align="center">
-  <img src="Gifs/3-Cube.png">
+  <img src="Gifs/3-Cube.png" width="500">
 </p>
 
 4. Change any single vertex colour in `CubeScript.cs` so that one triangle does not have all identical vertex colours. How is the triangle rendered differently? What ‘magic’ happens between the vertex and fragment shaders to facilitate this effect?
 
 <p align="center">
-  <img src="Gifs/4-Cube.png">
+  <img src="Gifs/4-Cube.png" width="500">
 </p>
 
 
