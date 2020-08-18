@@ -54,7 +54,7 @@ For the next questions there are two other files of interest:
 
 It might be worth taking a look at `CubeTexture.png` before continuing.
 
-5. You have been given a shader with basic texture capacities: CubeShaderTex.shader. Open it and try to comprehend what’s going on.
+5. You have been given a shader with basic texture capacities: `CubeShaderTex.shader`. Open it and try to comprehend what’s going on.
 * a. How does this shader differ from the colour shader you just wrote? What does the built-in function tex2D do?
 * b. Modify CubeScript.cs to use this shader. You’ll also need to modify the material used by the MeshRenderer component such that it references a texture object (the image). It will probably be easiest to reference the texture via a public attribute so it can be attached to the script in the Unity interface. In any case, make sure CubeTexture.png is the texture image being used. When it is working, you should notice the cube is partially textured correctly.
 * c. Parts of the cube are textured incorrectly or not at all. Locate and fix the erroneous UV coordinates in `CubeScript.cs`.
