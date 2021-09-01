@@ -4,21 +4,30 @@ using System.Collections;
 public class CubeScript : MonoBehaviour
 {
     // Use this for initialization
-    void Start()
+    public Shader shader;
+    public Texture texture;
+    //public Texture texture;
+    void Awake()
     {
-        // Add a MeshFilter component to this entity. This essentially comprises of a
-        // mesh definition, which in this example is a collection of vertices, colours 
-        // and triangles (groups of three vertices). 
-        MeshFilter cubeMesh = this.gameObject.AddComponent<MeshFilter>();
-        cubeMesh.mesh = this.CreateCubeMesh();
+        if(this.gameObject.GetComponent<MeshFilter>() == null)
+        {
+            MeshFilter cubeMesh = this.gameObject.AddComponent<MeshFilter>();
+            cubeMesh.mesh = this.CreateCubeMesh();
+        }
 
-        // Add a MeshRenderer component. This component actually renders the mesh that
-        // is defined by the MeshFilter component. You will need to modify this 
-        // component for task 1 (and again for task 5), in order to set the material
-        // to be used in rendering the cube.
-        MeshRenderer renderer = this.gameObject.AddComponent<MeshRenderer>();
-        //renderer.material ...
+        if(this.gameObject.GetComponent<MeshRenderer>() == null)
+        {
+            this.gameObject.AddComponent<MeshRenderer>();
+        }
     }
+
+    void OnEnable()
+    {
+        MeshRenderer renderer = this.gameObject.GetComponent<MeshRenderer>();
+        renderer.material.shader = this.shader;
+        renderer.material.mainTexture = this.texture;
+    }
+
 
     // Method to create a cube mesh with coloured vertices
     Mesh CreateCubeMesh()
@@ -133,23 +142,28 @@ public class CubeScript : MonoBehaviour
             new Vector2(0.666f, 0.333f),
             new Vector2(0.666f, 0.0f),
 
-            new Vector2(0.0f, 0.0f), // Left
-            new Vector2(0.0f, 0.0f),
-            new Vector2(0.0f, 0.0f),
-            new Vector2(0.0f, 0.0f),
-            new Vector2(0.0f, 0.0f),
-            new Vector2(0.0f, 0.0f),
+            new Vector2(0.666f, 0.666f),
+            new Vector2(0.333f, 0.666f),
+            new Vector2(0.333f, 1.0f),
+            new Vector2(0.666f, 0.666f), // Left
+            new Vector2(0.333f, 1.0f),
+            new Vector2(0.666f, 1.0f),
+            
 
             new Vector2(0.0f, 0.333f), // Right
             new Vector2(0.333f, 0.666f),
             new Vector2(0.333f, 0.333f),
-            new Vector2(0.0f, 0.666f),
             new Vector2(0.0f, 0.333f),
+            new Vector2(0.0f, 0.666f),
             new Vector2(0.333f, 0.666f),
 
-            new Vector2(0.0f, 0.0f), // Front
-            new Vector2(0.0f, 0.0f),
-            new Vector2(0.0f, 0.0f),
+            
+            
+            // Front
+            new Vector2(0.666f, 0.666f),
+            new Vector2(0.333f, 0.333f),
+            new Vector2(0.333f, 0.666f),
+            
             new Vector2(0.666f, 0.666f),
             new Vector2(0.666f, 0.333f),
             new Vector2(0.333f, 0.333f),
